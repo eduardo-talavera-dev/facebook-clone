@@ -9,16 +9,20 @@ import ChatIcon from '@material-ui/icons/Chat';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
 import ExpandMoreOutlinedIcon from '@material-ui/icons/ExpandMoreOutlined';
+import { useStateValue } from './StateProvider';
 
 
 
 function Sidebar() {
+
+  const [{ user }, dispatch] = useStateValue();
+
   return (
     <div className="sidebar">
 
       <SidebarRow 
-        src="https://avatars1.githubusercontent.com/u/56230124?s=460&u=1c295ece39899c7858f67ada3ac6671d9aac39dd&v=4"
-        title="Eduardo Talavera"
+        src={user.photoURL}
+        title={user.displayName}
        />  
 
       <SidebarRow Icon={LocalHospitalIcon} title='COVID-19 Information Center' />
